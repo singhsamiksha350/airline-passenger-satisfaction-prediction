@@ -1,18 +1,3 @@
-"""
-Airline Passenger Satisfaction Prediction
-==========================================
-Dataset: https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
-
-Place train.csv (and optionally test.csv) in the same folder as this script,
-then run:
-    python airline_satisfaction_prediction.py
-
-Outputs:
-    - outputs/eda/*.png          (EDA plots)
-    - outputs/model_results.txt  (metrics report)
-    - outputs/feature_importance.png
-"""
-
 import os
 import pandas as pd
 import numpy as np
@@ -40,10 +25,6 @@ os.makedirs(EDA_DIR, exist_ok=True)
 # 1. LOAD DATA
 # ---------------------------------------------------------------------
 def load_data():
-    """
-    Loads train.csv (and test.csv if present) from the current folder.
-    Works whether you have the Kaggle train/test split or a single CSV.
-    """
     if os.path.exists("train.csv"):
         train = pd.read_csv("train.csv")
         if os.path.exists("test.csv"):
