@@ -1,0 +1,47 @@
+
+==================================================
+Logistic Regression
+==================================================
+Accuracy : 0.8748
+Precision: 0.8716
+Recall   : 0.8348
+F1-score : 0.8528
+ROC-AUC  : 0.9269
+
+Confusion Matrix:
+[[13302  1388]
+ [ 1864  9422]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.91      0.89     14690
+           1       0.87      0.83      0.85     11286
+
+    accuracy                           0.87     25976
+   macro avg       0.87      0.87      0.87     25976
+weighted avg       0.87      0.87      0.87     25976
+
+
+==================================================
+Random Forest
+==================================================
+Accuracy : 0.9583
+Precision: 0.9635
+Recall   : 0.9397
+F1-score : 0.9514
+ROC-AUC  : 0.9929
+
+Confusion Matrix:
+[[14288   402]
+ [  681 10605]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      0.97      0.96     14690
+           1       0.96      0.94      0.95     11286
+
+    accuracy                           0.96     25976
+   macro avg       0.96      0.96      0.96     25976
+weighted avg       0.96      0.96      0.96     25976
