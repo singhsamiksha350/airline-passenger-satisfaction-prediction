@@ -1,72 +1,171 @@
-# Airline Passenger Satisfaction Prediction
+# ✈️ Airline Passenger Satisfaction Prediction
 
-Classification project: predicts whether a passenger is **satisfied** or
-**neutral/dissatisfied**, using Logistic Regression and Random Forest.
+This project predicts whether an airline passenger is **Satisfied** or **Neutral/Dissatisfied** based on travel details and in-flight service ratings. It demonstrates a complete machine learning workflow, including data preprocessing, exploratory data analysis (EDA), model training, evaluation, and feature importance analysis.
 
-## 1. Get the dataset
-Download from Kaggle:
-https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
+---
 
-Download `train.csv` (and `test.csv` if you want — the script will combine
-them automatically). Put both files in the **same folder** as
-`airline_satisfaction_prediction.py`.
+## 📌 Project Overview
 
-## 2. Set up your environment
-Open a terminal in that folder and run:
+The objective of this project is to identify the key factors influencing passenger satisfaction and build a classification model capable of predicting customer satisfaction accurately.
+
+The project includes:
+
+- Data Cleaning & Preprocessing
+- Exploratory Data Analysis (EDA)
+- Logistic Regression
+- Random Forest Classifier
+- Model Evaluation
+- Feature Importance Analysis
+
+---
+
+## 📂 Dataset
+
+The dataset used for this project is publicly available on Kaggle.
+
+**Dataset:** https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction
+
+Download `train.csv` (and optionally `test.csv`) and place them in the project directory before running the code.
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+
+---
+
+## 📁 Project Structure
+
+```
+airline-passenger-satisfaction-prediction/
+│
+├── airline_satisfaction_prediction.py
+├── requirements.txt
+├── README.md
+├── outputs/
+│   ├── eda/
+│   ├── feature_importance.png
+│   └── model_results.txt
+│
+└── train.csv / test.csv
+```
+
+---
+
+## 🚀 Installation
+
+Clone the repository
 
 ```bash
-python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # Mac/Linux
+git clone https://github.com/singhsamiksha350/airline-passenger-satisfaction-prediction.git
+```
 
+Move into the project folder
+
+```bash
+cd airline-passenger-satisfaction-prediction
+```
+
+Install the required libraries
+
+```bash
 pip install -r requirements.txt
 ```
 
-## 3. Run the project
+---
+
+## ▶️ Run the Project
+
 ```bash
 python airline_satisfaction_prediction.py
 ```
 
-## 4. What you get
+---
+
+## ⚙️ Workflow
+
+The project follows these steps:
+
+1. Load and merge the dataset.
+2. Handle missing values and remove duplicate records.
+3. Perform exploratory data analysis (EDA).
+4. Encode categorical variables.
+5. Split the dataset into training and testing sets.
+6. Train Logistic Regression and Random Forest models.
+7. Evaluate model performance using multiple metrics.
+8. Analyze feature importance to identify the most influential factors affecting passenger satisfaction.
+
+---
+
+## 📈 Model Performance
+
+| Model               |   Accuracy |  Precision |     Recall |   F1 Score |    ROC-AUC |
+| ------------------- | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Logistic Regression |     87.48% |     87.16% |     83.48% |     85.28% |     92.69% |
+| Random Forest       | **95.83%** | **96.35%** | **93.97%** | **95.14%** | **99.29%** |
+
+The Random Forest classifier achieved the best overall performance, significantly outperforming Logistic Regression across all evaluation metrics.
+
+---
+
+## 💡 Key Insights
+
+Feature importance analysis showed that the following attributes had the greatest impact on passenger satisfaction:
+
+- Online Boarding
+- Inflight WiFi Service
+- Type of Travel
+- Travel Class
+- Inflight Entertainment
+- Seat Comfort
+- Ease of Online Booking
+- Leg Room Service
+- Customer Type
+- On-board Service
+
+These findings highlight that both service quality and travel-related factors play a crucial role in determining customer satisfaction.
+
+---
+
+## 📷 Output
+
+Running the project automatically generates:
+
 ```
 outputs/
+│
 ├── eda/
 │   ├── target_distribution.png
 │   ├── satisfaction_by_class.png
 │   ├── satisfaction_by_customer_type.png
 │   ├── age_distribution.png
 │   └── correlation_heatmap.png
+│
 ├── feature_importance.png
-└── model_results.txt        # accuracy, precision, recall, F1, ROC-AUC,
-                              # confusion matrix, classification report
-                              # for both models
+└── model_results.txt
 ```
 
-Console output also prints the top 10 features driving satisfaction —
-this is your "business insights" section.
+You can also add screenshots of these outputs to this README for better visualization.
 
-## 5. What the script actually does (for your interview explanation)
-1. **Load** — reads train/test CSVs, merges them, drops stray index columns.
-2. **Clean** — fills missing `Arrival Delay in Minutes` with the median,
-   drops duplicates.
-3. **EDA** — target balance, satisfaction split by class/customer type/age,
-   correlation heatmap.
-4. **Preprocess** — label-encodes categoricals, encodes target as 0/1.
-5. **Model** — 80/20 stratified split; Logistic Regression (scaled features)
-   and Random Forest (200 trees, max_depth=15).
-6. **Evaluate** — accuracy, precision, recall, F1, ROC-AUC, confusion matrix
-   for both models, so you can compare a linear baseline vs. an ensemble.
-7. **Feature importance** — Random Forest's `feature_importances_`, plotted
-   and ranked, to answer "what actually drives satisfaction?"
+---
 
-## Typical findings on this dataset (for context)
-Online boarding, in-flight wifi service, and seat comfort are usually the
-top predictors — worth mentioning if your run produces similar rankings, and
-worth explaining *why* if it doesn't (e.g. class imbalance in your split).
+## 🔮 Future Improvements
 
-## Extending it further (optional, for a stronger portfolio piece)
-- Add XGBoost/LightGBM and compare against Random Forest
-- Hyperparameter tuning with GridSearchCV
-- SHAP values instead of built-in feature importance (better for interviews —
-  shows per-prediction reasoning, not just global ranking)
-- Wrap the trained model in a small Streamlit app for a live demo
+- Perform hyperparameter tuning using GridSearchCV
+- Compare additional ensemble models such as XGBoost or LightGBM
+- Deploy the trained model using Streamlit
+- Use SHAP values for model explainability
+
+---
+
+## 👩‍💻 Author
+
+**Samiksha Singh**
+
+GitHub: https://github.com/singhsamiksha350
